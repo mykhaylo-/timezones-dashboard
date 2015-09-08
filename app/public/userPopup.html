@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{userPopupCtrl.title}}</h3>
+</div>
+<div class="modal-body">
+
+    <alert ng-show="userPopupCtrl.alert" type="{{userPopupCtrl.alert.type}}" close="userPopupCtrl.closeAlert()">{{userPopupCtrl.alert.msg}}</alert>
+
+    <form class="form-horizontal" role="form" ng-submit="userPopupCtrl.save()">
+        <div class="form-group">
+            <label for="name" class="col-sm-3 control-label">Name</label>
+            <div class="col-sm-9">
+                <input type="text" ng-model="userPopupCtrl.user.name" class="form-control" id="name"
+                       placeholder="Full name here"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username" class="col-sm-3 control-label">Username</label>
+            <div class="col-sm-9">
+                <input type="text" ng-model="userPopupCtrl.user.username" class="form-control" id="username"
+                       placeholder="Username here"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-sm-3 control-label">E-mail</label>
+            <div class="col-sm-9">
+                <input type="text" ng-model="userPopupCtrl.user.email" class="form-control" id="email"
+                       placeholder="E-mail here"/>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="userPopupCtrl.save()">Save</button>
+    <button class="btn btn-warning" type="button" ng-click="userPopupCtrl.cancel()">Cancel</button>
+</div>

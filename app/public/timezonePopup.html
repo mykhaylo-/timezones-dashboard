@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{tzPopupCtrl.title}}</h3>
+</div>
+<div class="modal-body">
+
+    <alert ng-show="tzPopupCtrl.alert" type="{{tzPopupCtrl.alert.type}}" close="tzPopupCtrl.closeAlert()">{{tzPopupCtrl.alert.msg}}</alert>
+
+    <form class="form-horizontal" role="form" ng-submit="tzPopupCtrl.save()">
+        <div class="form-group">
+            <label for="name" class="col-sm-3 control-label">Name</label>
+            <div class="col-sm-9">
+                <input type="text" ng-model="tzPopupCtrl.timezone.name" class="form-control" id="name"
+                       placeholder="Timezone name here"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="city" class="col-sm-3 control-label">City</label>
+            <div class="col-sm-9">
+                <input type="text" ng-model="tzPopupCtrl.timezone.city" class="form-control" id="city"
+                       placeholder="City here"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="zoneOffset" class="col-sm-3 control-label">GMT offset</label>
+            <div class="col-sm-9">
+                <input type="text" ng-model="tzPopupCtrl.timezone.zoneOffset" class="form-control" id="zoneOffset"
+                       placeholder="GMT offset here"/>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="tzPopupCtrl.save()">Save</button>
+    <button class="btn btn-warning" type="button" ng-click="tzPopupCtrl.cancel()">Cancel</button>
+</div>

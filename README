@@ -1,0 +1,5 @@
+Project consists of two parts:
+
+app - the actual web application. To run - cd into app dir and execute spring run app.groovy
+cloudcode - contains scripts which are required to be deployed on parse.com cloud. To deploy cd into cloudcode dir and issue parse deploy
+

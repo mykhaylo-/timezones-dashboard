@@ -1,0 +1,37 @@
+<h1>Registration Form</h1>
+<form class="form-horizontal" role="form" ng-submit="registerController.register()">
+    <div class="form-group">
+        <label for="name" class="col-sm-3 control-label">Name</label>
+        <div class="col-sm-6">
+            <input type="text" ng-model="registerController.user.name" class="form-control" id="name"
+                   placeholder="Full name"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="username" class="col-sm-3 control-label">Username</label>
+        <div class="col-sm-6">
+            <input type="text" ng-model="registerController.user.username" class="form-control" id="username"
+                   placeholder="Username here"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email" class="col-sm-3 control-label">E-mail</label>
+        <div class="col-sm-6">
+            <input type="text" ng-model="registerController.user.email" class="form-control" id="email"
+                   placeholder="E-mail here"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password" class="col-sm-3 control-label">Password</label>
+        <div class="col-sm-6">
+            <input type="password" ng-model="registerController.user.password" class="form-control" id="password"
+                   placeholder="Password here"/>
+        </div>
+    </div>
+    <div>
+        <div class="col-sm-6"></div>
+        <div class="col-sm-3">
+        <input class="btn btn-default" type="submit" value="Register" />
+        </div>
+    </div>
+</form>

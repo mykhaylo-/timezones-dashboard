@@ -1,0 +1,52 @@
+<!doctype html>
+<html ng-app="app">
+	<head>
+		<title>Timezones application - Home page</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/0.4.15/toaster.min.css" />
+		<base href="/" />
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.min.js"></script>
+		<script src="//www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/0.4.15/toaster.min.js"></script>
+
+
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="https://code.angularjs.org/1.2.0/angular-animate.min.js" ></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="js/ui-bootstrap-tpls-0.13.4.min.js"></script>
+		<script src="js/parse-angular.js"></script>
+
+
+		<script src="main.js"></script>
+		<script src="registration.controller.js"></script>
+		<script src="login.controller.js"></script>
+		<script src="home.controller.js"></script>
+		<script src="admin.controller.js"></script>
+		<script src="users.controller.js"></script>
+	</head>
+
+	<body>
+	<nav ng-controller="RootController as rootController" class="navbar navbar-default navbar-static-top">
+		<div class="container">
+		<div class="navbar-header"><a class="navbar-brand" href="/">Timezones App</a></div>
+            <div class="navbar-right">
+                <a ng-hide="rootController.loggedIn()" class="btn btn-default navbar-btn" href="/register">Register</a>
+                <a ng-hide="rootController.loggedIn()" class="btn btn-default navbar-btn" href="/login">Login</a>
+                <div ng-show="rootController.loggedIn()" class="navbar-text">
+                    Signed in as <a href="#" class="navbar-link">{{rootController.currentUser.get("name")}}</a>
+                </div>
+                <ul class="nav navbar-nav">
+                <li><a ng-show="rootController.isAdmin()" href="/admin">Admin panel</a></li>
+                <li><a ng-show="rootController.isManager()"  href="/users">Users</a></li>
+                </ul>
+                <button ng-show="rootController.loggedIn()" class="btn btn-default navbar-btn" ng-click="rootController.logout()">Logout</button>
+            </div>
+        </div>
+	</nav>
+	<div class="container" ng-view>
+
+	</div>
+	</body>
+</html>

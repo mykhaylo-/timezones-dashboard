@@ -1,0 +1,26 @@
+<h1>Manage users</h1>
+<div>
+    <table class="table">
+        <thead>
+        <tr>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in usersController.users">
+            <td>{{user.username}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>
+                <a class="btn btn-primary" ng-click="usersController.openUserPopup(user)">Edit</a>
+                <a class="btn btn-danger" ng-click="usersController.deleteUser($index)">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <span ng-hide="usersController.users.length > 0">No users defined. Please <a href="/register">register</a> to add some.</span>
+</div>
+<toaster-container></toaster-container>

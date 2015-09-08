@@ -1,0 +1,40 @@
+<h1>Timezones Admin Panel</h1>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="input-group">
+            <span class="input-group-addon">Name: </span>
+            <input type="text" class="form-control" ng-model="search.name" placeholder="Filter...">
+        </div>
+    </div>
+</div>
+</div>
+<div class="row">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Timezone</th>
+            <th>City</th>
+            <th>GMT zone offset</th>
+            <th>Owner</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="timezone in adminController.timezones | filter: search:strict">
+            <td>{{timezone.name}}</td>
+            <td>{{timezone.city}}</td>
+            <td>{{timezone.zoneOffset}}</td>
+            <td>{{timezone.createdBy.name}}</td>
+            <td>
+                <a class="btn btn-primary" ng-click="adminController.openTimezonePopup(timezone)">Edit</a>
+                <a class="btn btn-danger" ng-click="adminController.deleteTimezone($index)">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <span ng-hide="adminController.timezones.length > 0">No timezones defined.</span>
+    <a class="btn btn-primary" ng-click="adminController.openTimezonePopup()">Add</a>
+</div>
+<toaster-container></toaster-container>

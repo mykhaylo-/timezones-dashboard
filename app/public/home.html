@@ -1,0 +1,43 @@
+<h1>Your timezones dashboard</h1>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="input-group">
+            <span class="input-group-addon">Name: </span>
+            <input type="text" class="form-control" ng-model="search.name" placeholder="Filter...">
+        </div>
+    </div>
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">Your local time: {{homeController.localTime | date : homeController.format}}
+        </div>
+</div>
+</div>
+<div class="row">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Timezone</th>
+            <th>City</th>
+            <th>GMT zone offset</th>
+            <th>Local time</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="timezone in homeController.timezones | filter: search:strict">
+            <td>{{timezone.name}}</td>
+            <td>{{timezone.city}}</td>
+            <td>{{timezone.zoneOffset}}</td>
+            <td>{{timezone.localTime | date : homeController.format : timezone.zoneOffset}}</td>
+            <td>
+                <a class="btn btn-primary" ng-click="homeController.openTimezonePopup(timezone)">Edit</a>
+                <a class="btn btn-danger" ng-click="homeController.deleteTimezone($index)">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <span ng-hide="homeController.timezones.length > 0">No timezones defined. Please add some.</span>
+    <a class="btn btn-primary" ng-click="homeController.openTimezonePopup()">Add</a>
+</div>
+<toaster-container></toaster-container>
